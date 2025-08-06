@@ -1,9 +1,10 @@
 public class HolaMundo { 
 
-puclic static void main(String[]args){
+  public static void main(String[]args){
  
     System.out.println("Mi Primer hola mundo en JAVA!!");
 
-}
-
+  }
+//creacion de la variable x tipo entero
+     int x=2;
 }
