@@ -60,8 +60,61 @@ public class condicionales {
     }else{
       System.out.println("Angulo es recto");
     }
-
+   //--------------------------------------
+   //ejercicio 4.2 
+   int num1 = 10; 
+   int num2 = 20;
+   if (num1>num2){
+    System.out.println("El primer numero es el mayor");
+   }else if(num1<num2){
+    System.out.println("el primer numero es el mas pequeño");
+   }else{
+    System.out.println("Ambos numeros son iguales");
+   } 
+   //--------------------------------------
+   // ejercicio 4.3
+   int nu1 = 15;
+   int nu2 = 20;
+   int nu3 = 10;
+   if((nu1 > nu2 && nu1 < nu3) || (nu1 > nu3 && nu1 < nu2)){
+    System.out.println("El numero central es:"+ nu1);
+   }else if ((nu2 > nu1 && nu2 < nu3) || (nu2 > nu3 && nu2 < nu1)){
+     System.out.println("El numero central es:"+ nu2);
+   }else{
+     System.out.println("El numero central es:"+ nu3);
+   }
+  //--------------------------------------
+   // ejercicio 4.4
+   int numero = 25; 
+   if(numero>=0){
+    double raiz = Math.sqrt(numero);
+    System.out.println("La raiz cuadrada es:"+raiz);
+   }else{
+    System.out.println("No se puede calcular raiz cuadrada de un numero negativo");
+   }
+  // ejercicio 4.5
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
