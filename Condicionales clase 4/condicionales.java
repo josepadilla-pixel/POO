@@ -1,5 +1,5 @@
 
-public class condicionales {
+public class condicionales {                        
   public static void main(String[] args) {
     int angulo = 80;
     if (angulo == 90) {
@@ -185,13 +185,14 @@ public class condicionales {
       System.out.println("Multiplicación: " + (m * n));
    }else if (codigo == 3){
      System.out.println("División: " + (m / n));
-   }else if(n != 0){
-     System.out.println("No se puede dividir entre cero");
    }else{
      System.out.println("Código inválido");
    }
      
-  
+ 
+    
+      
+
 
    
     
@@ -276,4 +277,5 @@ public class condicionales {
 
 
   }
-}
+}  
+
