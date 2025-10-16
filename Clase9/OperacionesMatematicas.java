@@ -42,24 +42,24 @@ public class OperacionesMatematicas {
         return resultado;
     } 
     //potencias
-    public int cuadradoN1() {
+    public double cuadradoN1() {
      return Math.pow(n1, 2);
     }
 
-    public int cuadradoN2() {
+    public double cuadradoN2() {
 
-     return Math.pow(n2, 2);
+     return Math.pow(n2,2);
     } 
-    public int cubicoN1(){
+    public double cubicoN1(){
         return Math.pow(n1, 3);
     }
-    public int cubicoN2(){
+    public double cubicoN2(){
         return Math.pow(n2, 3);
     } 
-    public int elevadoalanN1 (){
+    public double elevadoalanN1 (int n){
         return Math.pow(n1, n);
     }
-    public int elavadoalanN2(){
+    public double elavadoalanN2(int n){
         return Math.pow(n2, n);
     } 
     //raices
