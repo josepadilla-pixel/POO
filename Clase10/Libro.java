@@ -22,7 +22,7 @@ public class Libro {
     }
     
     public int getAnioPublicacion(){
-        return anioPublicacion;
+        return aniodePublicacion;
     }
     
     public void setTitulo(String titulo){
