@@ -1,27 +1,25 @@
 public class Impresora extends Producto {
     private String color;
-    private Foto[] fotos; 
+    private Foto[] fotos;
 
-
-     public Impresora(int numero, String nombre, double precio, String color, Foto[] fotos) {
-        super(numero, nombre, precio); // Llama al constructor de Producto
+    public Impresora(int numerodelProducto, String nombredelProducto, double precio, String color, Foto[] fotos) {
+        super(numerodelProducto, nombredelProducto, precio);
         this.color = color;
         this.fotos = fotos;
-    } 
+    }
 
-    public void imprimir(){
-        System.out.println("Impriminedo foto en colores "+color);
-    } 
+    public void imprimir() {
+        System.out.println("Imprimiendo fotos en color " + color);
 
-    public String toString() {return "Impresión: " + nombredelproducto +"  Color: " + color +"  Precio: " + precio;}
+        int i = 0;
+        while (i < fotos.length) {
+            System.out.println(fotos[i]);
+            i++;
+        }
+    }
 
+    public String toString() {
+        return "Impresión: " + nombredelProducto + "  Color: " + color + "  Precio: " + precio;
+    }
 
-    
-
-
-
-
-
-
-    
 }

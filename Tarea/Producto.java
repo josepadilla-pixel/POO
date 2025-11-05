@@ -1,30 +1,26 @@
 public class Producto {
-    private int numeroDelProducto;
-    private String nombreDelProducto;
-    private double precio;
+    protected int numerodelProducto;
+    protected String nombredelProducto;
+    protected double precio;
 
-    public Producto(int numeroDelProducto, String nombreDelProducto, double precio) {
-        this.numeroDelProducto = numeroDelProducto;
-        this.nombreDelProducto = nombreDelProducto;
+    public Producto(int numerodelProducto, String nombredelProducto, double precio) {
+        this.numerodelProducto = numerodelProducto;
+        this.nombredelProducto = nombredelProducto;
         this.precio = precio;
-    } 
+    }
 
-    public double precio(){
+    public double getprecio() {
         return precio;
     }
 
-    public double calcularprecio(){
+    public double calcularprecio() {
         return precio;
     }
 
-  public String toString() {
-        return "Producto{" +"numeroDelProducto=" + numeroDelProducto +" nombreDelProducto='" + nombreDelProducto + " precio=" + precio +'}';
+    
+    public String toString() {
+        return "Producto{" + "numeroDelProducto=" + numerodelProducto + " nombreDelProducto='" + nombredelProducto
+                + " precio=" + precio + '}';
     }
-
-
-
-
-
-
 
 }
