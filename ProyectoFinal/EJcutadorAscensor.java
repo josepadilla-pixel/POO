@@ -11,7 +11,7 @@ public class EJcutadorAscensor {
         control.moverApiso(6); 
         control.salirPersonas(2); 
 
-        System.out.println("\n=== Segundo escenario: Bajar al piso 2 ===");
+        System.out.println("\n=== Segundo escenario: Bajar al piso 4 ===");
         control.entrarPersonas(3);
         control.moverApiso(4);
         control.salirPersonas(6); 
