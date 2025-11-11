@@ -1,26 +1,24 @@
 package ProyectoFinal;
 
-public class Acensor {
+public class Ascensor {
     private int pisoActual;
     private int pisoMinimo;
     private int pisoMaximo;
     private int capacidadMaxima;
     private int personasDentro;
-    private boolean puertaAbierta;
     private String estado;// "Subiendo", "Bajando","Detenido" 
 
-    public Acensor(int pisoMinimo,int pisoMaximo,int capacidadMaxima){
+    public Ascensor(int pisoMinimo,int pisoMaximo,int capacidadMaxima){
         this.pisoActual = pisoMinimo;
         this.pisoMinimo = pisoMinimo;
         this.pisoMaximo = pisoMaximo;
         this.capacidadMaxima = capacidadMaxima;
         this.personasDentro = 0; 
-        this.puertaAbierta = false;
         this.estado = "Detenido"; 
     }
 
-    public Acensor(){
-        this(0 ,10 ,8);
+    public Ascensor(){
+        this(1 ,10 ,8);
     } 
     // getters and setters 
 
@@ -32,10 +30,10 @@ public class Acensor {
         this.pisoActual = pisoActual;
     } 
 
-    public int pisoMinimo(){
+    public int getpisoMinimo(){
         return pisoMinimo;
     } 
-    public int pisoMaximo(){
+    public int getpisoMaximo(){
        return pisoMaximo;
     }
     public int getCapacidadMaxima(){
@@ -47,12 +45,6 @@ public class Acensor {
     public void setPersonasDentro(int personasDentro){
         this.personasDentro = personasDentro;
     }
-    public boolean getPuertaAbierta(){
-        return puertaAbierta;
-    }
-    public void setPuertaAbierta(boolean puertaAbierta){
-      this.puertaAbierta = puertaAbierta;
-    } 
     public String getEstado(){
         return  estado;
     } 

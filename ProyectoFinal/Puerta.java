@@ -14,12 +14,12 @@ private boolean puertaAbierta;
         puertaAbierta = true; 
         System.out.println("Puerta abierta");
     } 
-    public void cerraPuerta(){
+    public void cerrarPuerta(){
         if(obstaculoDetectado){
             System.out.println("Hay un obtaculo no se puede cerrar la puerta");
         }else{
             puertaAbierta = false;
-        System.out.println("Puerta cerrada");
+            System.out.println("Puerta cerrada");
         }
         
     }   
