@@ -7,16 +7,21 @@ public class Boton {
 
     public Boton(String funcion){
         this.iluminar=false;
-        this.presionado=false;
+        this.presionado=false; 
+        this.funcion = funcion;
     } 
 
     public void iluminar() {
         iluminar = true;
         System.out.println( "El boton "+funcion+ " iluminado");
-    } 
+    }
+    public void apagar(){
+        iluminar=false;
+         System.out.println( "El boton "+funcion+ " apagado ");
+    }
     public void presionar(){
         presionado=true;
-        System.out.println("El boton "+funcion+"fue presionado");
+        System.out.println("El boton "+funcion+" fue presionado ");
     } 
     //getters and setters
 
