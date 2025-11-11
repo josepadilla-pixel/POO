@@ -10,7 +10,7 @@ public class Libro {
      public Libro(String titulo, String autor, int anioPublicacion){
         this.titulo = titulo;
         this.autor = autor;
-        this.anioPublicacion = anioPublicacion;
+        this.aniodePublicacion = anioPublicacion;
     } 
      //Métodos Getter and Setter
     public String getTitulo(){
@@ -34,11 +34,11 @@ public class Libro {
     }
     
     public void setAnioPublicacion(int anioPublicacion){
-        this.anioPublicacion = anioPublicacion;
+        this.aniodePublicacion = anioPublicacion;
     }
     
     public String toString(){
-        return "Libro [ Título: " + titulo + " Autor: " + autor + " Año publicación: " + anioPublicacion + " ]"; 
+        return "Libro [ Título: " + titulo + " Autor: " + autor + " Año publicación: " + aniodePublicacion + " ]"; 
     }
 }
 

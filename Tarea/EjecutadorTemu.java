@@ -13,7 +13,8 @@ public class EjecutadorTemu {
         System.out.println(cliente);
         System.out.println(impresora);
         System.out.println(camara);
-        impresora.imprimir();
+        Impresora imp = new Impresora(0, null, 0, null, null);
+        imp.imprimir();
 
         System.out.println(pedido);
         System.out.println("Total del pedido: $" + pedido.calcularTotal());
