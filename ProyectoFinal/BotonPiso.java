@@ -1,32 +1,54 @@
 package ProyectoFinal;
 
+/**
+ * Clase que representa un botón ubicado en los pisos del edificio
+ * Permite solicitar el ascensor para subir o bajar
+ * 
+ * 
+ */
 public class BotonPiso extends Boton {
-    private final String direccion; 
-    private int numerodePiso;
+    private final String direccion;
+    private final int numeroPiso;
 
-    public BotonPiso(int numerodePiso,String funcion,String direccion){
+    /**
+     * Constructor del botón de piso
+     * 
+     * @param numeroPiso Número del piso donde está ubicado el botón
+     * @param funcion    Descripción de la función del botón
+     * @param direccion  Dirección de movimiento ("arriba" o "abajo")
+     * @throws IllegalArgumentException Si la dirección no es válida
+     */
+    public BotonPiso(int numeroPiso, String funcion, String direccion) {
         super(funcion);
-        if(!direccion.equalsIgnoreCase("arriba")&& !direccion.equalsIgnoreCase("abajo")) {
-            throw new IllegalArgumentException("Direccion debe ser ARRIBA o ABAJO");
+        if (!direccion.equalsIgnoreCase("arriba") && !direccion.equalsIgnoreCase("abajo")) {
+            throw new IllegalArgumentException("Dirección debe ser ARRIBA o ABAJO");
         }
-        this.direccion = direccion; 
-        this.numerodePiso = numerodePiso; 
-    } 
-    
-    public void funcionalidad(String funcion){
-        System.out.println("Solicitud de: "+direccion+" desde piso "+numerodePiso);
-    } 
+        this.direccion = direccion;
+        this.numeroPiso = numeroPiso;
+    }
 
-    // getters and setters
+    /**
+     * Ejecuta la funcionalidad específica del botón de piso
+     * Anuncia la solicitud de ascensor en una dirección específica
+     */
+    @Override
+    public void ejecutarFuncionalidad() {
+        System.out.println("Solicitud de: " + direccion + " desde piso " + numeroPiso);
+    }
 
-    public String getdireccion(){
+    // Getters
+
+    /**
+     * @return Dirección de movimiento del botón ("arriba" o "abajo")
+     */
+    public String getDireccion() {
         return direccion;
-    } 
-   
-    public int getnumedePsio(){
-        return numerodePiso;
-    } 
+    }
 
-    
-
+    /**
+     * @return Número del piso donde está ubicado el botón
+     */
+    public int getNumeroPiso() {
+        return numeroPiso;
+    }
 }

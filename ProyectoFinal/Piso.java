@@ -1,88 +1,66 @@
 package ProyectoFinal;
-
+/**
+ * Clase que representa cada piso del edificio
+ * Solo contiene información del piso, sin instanciar botones
+ * 
+ */
 public class Piso {
-    private final int numPiso;
-    private final BotonPiso botonsubida;
-    private final BotonPiso botonbajada;
-    private final Puerta puertapiso;
+    private final int numeroPiso;
+    private final boolean esPrimerPiso;
+    private final boolean esUltimoPiso;
+    private final Puerta puertaPiso;
 
-    /*
-     * El @param es una etique que se usa en los comentarios 
-     * para describir los parametros de un metodo o constructor
+    /**
+     * Constructor para pisos intermedios
+     * @param numeroPiso Número identificador del piso
      */
-
-    /*
-     * @param numPiso: Es el numero de piso en el esta el usuario
-     * 
-     * @param funcionbotonsubida: Es la funcionalidad que cumple ese boton de subida
-     * 
-     * @param funcionbotonbajada: Es la funcionalidad que cumple ese boton de bajada
-     */
-    public Piso(int numPiso, String funcionbotonsubida, String funcionbotonbajada) {
-        this.numPiso = numPiso;
-        this.botonsubida = new BotonPiso(numPiso, funcionbotonsubida, "arriba");
-        this.botonbajada = new BotonPiso(numPiso, funcionbotonbajada, "abajo");
-        this.puertapiso = new Puerta();
+    public Piso(int numeroPiso) {
+        this.numeroPiso = numeroPiso;
+        this.esPrimerPiso = false;
+        this.esUltimoPiso = false;
+        this.puertaPiso = new Puerta();
     }
 
-    /*
-     * @param numPiso: Es el numero de piso en el esta el usuario
-     * 
-     * @param esultimoPiso: Sirve para indicar que esta en el ultimo piso al usuario
-     * 
-     * @param funcionbotonbajada: Es la funcionalidad que cumple ese boton de bajada
+    /**
+     * Constructor para pisos extremos
+     * @param numeroPiso Número identificador del piso
+     * @param esPrimerPiso true si es el primer piso
+     * @param esUltimoPiso true si es el último piso
      */
-    public Piso(int numPiso,boolean esultimoPiso, String funcionbotonbajada) {
-        this.numPiso = numPiso;
-        this.botonsubida = null;
-        this.botonbajada = new BotonPiso(numPiso, funcionbotonbajada, "abajo");
-        this.puertapiso = new Puerta();
+    public Piso(int numeroPiso, boolean esPrimerPiso, boolean esUltimoPiso) {
+        this.numeroPiso = numeroPiso;
+        this.esPrimerPiso = esPrimerPiso;
+        this.esUltimoPiso = esUltimoPiso;
+        this.puertaPiso = new Puerta();
     }
 
-    /*
-     * @param numPiso: Es el numero de piso en el esta el usuario
-     * 
-     * @param funcionbotonsubida: Es la funcionalidad que cumple ese boton de subida
-     * 
-     * @param esprimerPiso: Sirve para indicar que esat en el primer piso al usuario
+    // Getters
+
+    /**
+     * @return Número identificador del piso
      */
-    public Piso(int numPiso, String funcionbotonsubida, boolean esprimerPiso) {
-        this.numPiso = numPiso;
-        this.botonsubida = new BotonPiso(numPiso, funcionbotonsubida, "arriba");
-        this.botonbajada = null;
-        this.puertapiso = new Puerta();
-    } 
-
-    //getters
-
-    public int getnumedePsio(){
-        return numPiso;
-    } 
-    public BotonPiso botonsubida(){
-       return  botonsubida;
-    } 
-    public BotonPiso botonbajada(){
-        return botonbajada;
-    } 
-    public Puerta puertapiso(){
-        return puertapiso;
+    public int getNumeroPiso() {
+        return numeroPiso;
     }
 
+    /**
+     * @return true si es el primer piso
+     */
+    public boolean esPrimerPiso() {
+        return esPrimerPiso;
+    }
 
+    /**
+     * @return true si es el último piso
+     */
+    public boolean esUltimoPiso() {
+        return esUltimoPiso;
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    /**
+     * @return Puerta asociada al piso
+     */
+    public Puerta getPuertaPiso() {
+        return puertaPiso;
+    }
 }

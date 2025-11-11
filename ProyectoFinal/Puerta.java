@@ -1,43 +1,69 @@
 package ProyectoFinal;
 
+/**
+ * Clase que representa la puerta del ascensor
+ * Controla la apertura, cierre y detección de obstáculos
+ * 
+ * 
+ */
 public class Puerta {
-private boolean puertaAbierta;
-    private boolean obstaculoDetectado; 
+    private boolean puertaAbierta;
+    private boolean obstaculoDetectado;
 
-
-    public  Puerta(){
-        puertaAbierta=false;
+    /**
+     * Constructor de la puerta
+     * Inicializa la puerta cerrada sin obstáculos
+     */
+    public Puerta() {
+        puertaAbierta = false;
         obstaculoDetectado = false;
-    } 
+    }
 
-    public void abrirPuerta(){
-        puertaAbierta = true; 
+    /**
+     * Abre la puerta del ascensor
+     */
+    public void abrirPuerta() {
+        puertaAbierta = true;
         System.out.println("Puerta abierta");
-    } 
-    public void cerrarPuerta(){
-        if(obstaculoDetectado){
-            System.out.println("Hay un obtaculo no se puede cerrar la puerta");
-        }else{
+    }
+
+    /**
+     * Cierra la puerta del ascensor si no hay obstáculos
+     */
+    public void cerrarPuerta() {
+        if (obstaculoDetectado) {
+            System.out.println("Hay un obstáculo, no se puede cerrar la puerta");
+        } else {
             puertaAbierta = false;
             System.out.println("Puerta cerrada");
         }
-        
-    }   
+    }
 
-    //getters and setters
+    // Getters y Setters
 
-    public boolean getobstaculoDetectado(){
+    /**
+     * @return true si se detecta un obstáculo, false en caso contrario
+     */
+    public boolean getObstaculoDetectado() {
         return obstaculoDetectado;
     }
 
-    public boolean getpuertaAbierta(){
+    /**
+     * @return true si la puerta está abierta, false si está cerrada
+     */
+    public boolean getPuertaAbierta() {
         return puertaAbierta;
     }
 
-    public void setobstaculoDetectado(boolean obstaculoDetectado){
+    /**
+     * Establece el estado de detección de obstáculos
+     * 
+     * @param obstaculoDetectado Nuevo estado de detección
+     */
+    public void setObstaculoDetectado(boolean obstaculoDetectado) {
         this.obstaculoDetectado = obstaculoDetectado;
-        if(obstaculoDetectado){
-            System.out.println("ALERTA: Obstaculo detectado");
+        if (obstaculoDetectado) {
+            System.out.println("ALERTA: Obstáculo detectado");
         }
     }
 }

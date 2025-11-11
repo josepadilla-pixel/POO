@@ -1,43 +1,90 @@
 package ProyectoFinal;
 
+/**
+ * Clase base que representa un botón genérico del sistema de ascensor
+ * Proporciona funcionalidades básicas como presionar, iluminar y apagar
+ * 
+ *
+ */
 public class Boton {
-    protected boolean iluminar; 
-    protected boolean presionado; 
-    protected String funcion; 
+    protected boolean iluminado;
+    protected boolean presionado;
+    protected String funcion;
 
-    public Boton(String funcion){
-        this.iluminar=false;
-        this.presionado=false; 
+    /**
+     * Constructor de la clase Boton
+     * 
+     * @param funcion Descripción de la función que cumple el botón
+     */
+    public Boton(String funcion) {
+        this.iluminado = false;
+        this.presionado = false;
         this.funcion = funcion;
-    } 
+    }
 
+    /**
+     * Ilumina el botón indicando que está activo
+     */
     public void iluminar() {
-        iluminar = true;
-        System.out.println( "El boton "+funcion+ " iluminado");
+        iluminado = true;
+        System.out.println("El botón " + funcion + " iluminado");
     }
-    public void apagar(){
-        iluminar=false;
-         System.out.println( "El boton "+funcion+ " apagado ");
-    }
-    public void presionar(){
-        presionado=true;
-        System.out.println("El boton "+funcion+" fue presionado ");
-    } 
-    //getters and setters
 
-    public boolean getiluminado(){
-        return iluminar;
-    } 
-    public void setiluminado(boolean iluminado){
-        this.iluminar = iluminado;
-    } 
-    public boolean getpresionar(){
+    /**
+     * Apaga la iluminación del botón
+     */
+    public void apagar() {
+        iluminado = false;
+        System.out.println("El botón " + funcion + " apagado");
+    }
+
+    /**
+     * Simula la acción de presionar el botón
+     */
+    public void presionar() {
+        presionado = true;
+        System.out.println("El botón " + funcion + " fue presionado");
+    }
+
+    /**
+     * Ejecuta la funcionalidad específica del botón
+     * Este método será sobrescrito por las subclases
+     */
+    public void ejecutarFuncionalidad() {
+        System.out.println("Funcionalidad base del botón: " + funcion);
+    }
+
+    // Getters y Setters
+
+    /**
+     * @return Estado de iluminación del botón
+     */
+    public boolean getIluminado() {
+        return iluminado;
+    }
+
+    /**
+     * Establece el estado de iluminación del botón
+     * 
+     * @param iluminado Nuevo estado de iluminación
+     */
+    public void setIluminado(boolean iluminado) {
+        this.iluminado = iluminado;
+    }
+
+    /**
+     * @return Estado de presionado del botón
+     */
+    public boolean getPresionado() {
         return presionado;
-    } 
-    public  void setpresionar(boolean presionado){
+    }
+
+    /**
+     * Establece el estado de presionado del botón
+     * 
+     * @param presionado Nuevo estado de presionado
+     */
+    public void setPresionado(boolean presionado) {
         this.presionado = presionado;
     }
-
- 
-
 }
