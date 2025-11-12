@@ -31,6 +31,9 @@ public class Main {
 
         System.out.println("\n=== Escenario 4: Sistema de emergencia ===");
         control.emergencia(); 
-    }
+    } 
+
+    
+    
 }
 

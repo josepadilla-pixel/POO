@@ -8,7 +8,7 @@ public class Piso {
     private final int numeroPiso;
     private final boolean esPrimerPiso;
     private final boolean esUltimoPiso;
-    private final Puerta puertaPiso;
+    
 
     /**
      * Constructor para pisos intermedios
@@ -18,7 +18,7 @@ public class Piso {
         this.numeroPiso = numeroPiso;
         this.esPrimerPiso = false;
         this.esUltimoPiso = false;
-        this.puertaPiso = new Puerta();
+        
     }
 
     /**
@@ -31,7 +31,7 @@ public class Piso {
         this.numeroPiso = numeroPiso;
         this.esPrimerPiso = esPrimerPiso;
         this.esUltimoPiso = esUltimoPiso;
-        this.puertaPiso = new Puerta();
+    
     }
 
     // Getters
@@ -57,10 +57,6 @@ public class Piso {
         return esUltimoPiso;
     }
 
-    /**
-     * @return Puerta asociada al piso
-     */
-    public Puerta getPuertaPiso() {
-        return puertaPiso;
-    }
+   
+    
 }

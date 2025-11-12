@@ -51,4 +51,9 @@ public class BotonPiso extends Boton {
     public int getNumeroPiso() {
         return numeroPiso;
     }
+
+    @Override
+    public boolean esBoton(int piso, String direccion) {
+        return this.numeroPiso == piso && this.direccion.equalsIgnoreCase(direccion);
+    }
 }

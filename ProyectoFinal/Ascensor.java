@@ -8,11 +8,16 @@ package ProyectoFinal;
  */
 public class Ascensor {
     private int pisoActual;
-    private int pisoMinimo;
-    private int pisoMaximo;
-    private int capacidadMaxima;
+    private final int pisoMinimo;
+    private final int pisoMaximo;
+    private final int capacidadMaxima;
     private int personasDentro;
     private String estado; // "Subiendo", "Bajando", "Detenido"
+    private final Puerta puerta; // El ascensor ahora tiene su propia puerta
+
+    /*
+     * @param 
+     */
 
     /**
      * Constructor principal del ascensor
@@ -28,6 +33,7 @@ public class Ascensor {
         this.capacidadMaxima = capacidadMaxima;
         this.personasDentro = 0;
         this.estado = "Detenido";
+        this.puerta = new Puerta(); // Se crea la puerta con el ascensor
     }
 
     /**
@@ -38,74 +44,110 @@ public class Ascensor {
         this(1, 10, 8);
     }
 
-    // Getters y Setters
+    // Getters
 
-    /**
-     * @return Piso actual donde se encuentra el ascensor
-     */
     public int getPisoActual() {
         return pisoActual;
     }
 
-    /**
-     * Establece el piso actual del ascensor
-     * 
-     * @param pisoActual Nuevo piso actual
-     */
-    public void setPisoActual(int pisoActual) {
-        this.pisoActual = pisoActual;
-    }
-
-    /**
-     * @return Piso mínimo al que puede llegar el ascensor
-     */
     public int getPisoMinimo() {
         return pisoMinimo;
     }
 
-    /**
-     * @return Piso máximo al que puede llegar el ascensor
-     */
     public int getPisoMaximo() {
         return pisoMaximo;
     }
 
-    /**
-     * @return Capacidad máxima de personas en el ascensor
-     */
     public int getCapacidadMaxima() {
         return capacidadMaxima;
     }
 
-    /**
-     * @return Número de personas actualmente dentro del ascensor
-     */
     public int getPersonasDentro() {
         return personasDentro;
     }
 
-    /**
-     * Establece el número de personas dentro del ascensor
-     * 
-     * @param personasDentro Nuevo número de personas
-     */
-    public void setPersonasDentro(int personasDentro) {
-        this.personasDentro = personasDentro;
-    }
-
-    /**
-     * @return Estado actual del ascensor ("Subiendo", "Bajando", "Detenido")
-     */
     public String getEstado() {
         return estado;
     }
 
-    /**
-     * Establece el estado del ascensor
-     * 
-     * @param estado Nuevo estado ("Subiendo", "Bajando", "Detenido")
-     */
+    public Puerta getPuerta() {
+        return puerta;
+    }
+    
     public void setEstado(String estado) {
         this.estado = estado;
     }
+
+    /**
+     * Mueve el ascensor al piso destino.
+     * Ahora esta lógica está DENTRO del ascensor.
+     */
+    public void moverA(int pisoDestino) {
+        if (puerta.getPuertaAbierta()) {
+            puerta.cerrarPuerta();
+        }
+
+        if (pisoDestino == this.pisoActual) {
+            System.out.println("Ya estás en el piso " + this.pisoActual);
+            this.puerta.abrirPuerta();
+            return;
+        }
+
+        this.estado = (pisoDestino > this.pisoActual) ? "Subiendo" : "Bajando";
+        System.out.println("\n" + this.estado + " desde piso " + this.pisoActual + " hacia piso " + pisoDestino);
+
+        while (this.pisoActual != pisoDestino) {
+            try {
+                Thread.sleep(1000);
+                if ("Subiendo".equals(this.estado)) {
+                    this.pisoActual++;
+                } else {
+                    this.pisoActual--;
+                }
+                System.out.println("Pasando por piso " + this.pisoActual + "....");
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                System.out.println("Alerta: Actividad interrumpida");
+            }
+        }
+
+        this.estado = "Detenido";
+        System.out.println("Has llegado a tu destino. Estás en el piso " + this.pisoActual);
+        this.puerta.abrirPuerta();
+    }
+
+    /**
+     * Lógica para que entren personas.
+     */
+    public boolean entrarPersonas(int cantidadDePersonasAEntrar) {
+        if (!puerta.getPuertaAbierta()) {
+            puerta.abrirPuerta();
+        }
+        if (this.personasDentro + cantidadDePersonasAEntrar > this.capacidadMaxima) {
+            System.out.println("Alerta: Capacidad excedida. Solo caben " +
+                    this.capacidadMaxima + " personas");
+            return false;
+        }
+        this.personasDentro += cantidadDePersonasAEntrar;
+        System.out.println(cantidadDePersonasAEntrar + " personas entraron. Total: " + this.personasDentro);
+        return true;
+    }
+
+    /**
+     * Lógica para que salgan personas.
+     */
+    public boolean salirPersonas(int cantidadDePersonasASalir) {
+        if (!puerta.getPuertaAbierta()) {
+            puerta.abrirPuerta();
+        }
+        if (cantidadDePersonasASalir > this.personasDentro) {
+            System.out.println("Error: Solo hay " +
+                    this.personasDentro + " personas dentro");
+            return false;
+        }
+        this.personasDentro -= cantidadDePersonasASalir;
+        System.out.println(cantidadDePersonasASalir + " personas salieron. Total: " + this.personasDentro);
+        return true;
+    }
 }
+

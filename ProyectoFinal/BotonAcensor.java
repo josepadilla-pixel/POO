@@ -35,4 +35,10 @@ public class BotonAcensor extends Boton {
     public int getPisoDestino() {
         return pisoDestino;
     }
+
+
+    @Override
+    public boolean esBoton(int piso, String direccion) {
+        return this.pisoDestino == piso;
+    }
 }

@@ -54,6 +54,17 @@ public class Boton {
         System.out.println("Funcionalidad base del botón: " + funcion);
     }
 
+    /**
+     * Comprueba si el botón corresponde a un piso y/o dirección.
+     * 
+     * @param piso      El número de piso.
+     * @param direccion La dirección (puede ser null).
+     * @return true si el botón corresponde, false en caso contrario.
+     */
+    public boolean esBoton(int piso, String direccion) {
+        return false;
+    }
+
     // Getters y Setters
 
     /**
@@ -77,6 +88,10 @@ public class Boton {
      */
     public boolean getPresionado() {
         return presionado;
+    } 
+    
+    public String getfuncion(){
+        return funcion;
     }
 
     /**
